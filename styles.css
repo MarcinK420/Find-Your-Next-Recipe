@@ -1,0 +1,83 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+#search-section {
+    background-color: #f0f0f0;
+    padding: 20px 0;
+    text-align: center;
+}
+#search-section input[type="text"] {
+    padding: 10px;
+    width: 50%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+#search-section input[type="submit"] {
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+#search-section input[type="submit"]:hover {
+    background-color: #444;
+}
+#search-section .error {
+    color: red;
+    font-size: 16px;
+    margin-top: 10px;
+}
+#igredients-input {
+    padding: 10px;
+    width: 50%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+#search-btn {
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+#search-btn:hover {
+    background-color: #444;
+}
+#results-section {
+    padding: 20px 0;
+    text-align: center;
+}
+#recipes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+}
+.recipe {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+}
+.recipe img {
+    width: 100%;
+    border-radius: 5px;
+}
+.recipe h3 {
+    margin: 10px 0;
+}
