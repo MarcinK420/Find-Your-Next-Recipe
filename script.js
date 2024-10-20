@@ -7,7 +7,7 @@ function searchRecipes() {
         return;
     }
 
-    const apiKey = 'ec68f7897ce34f40a09fca9a222ef0c0';
+    const apiKey = config.apiKey;
     const apiUrl = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&number=10&apiKey=${apiKey}`;
 
     fetch(apiUrl)
