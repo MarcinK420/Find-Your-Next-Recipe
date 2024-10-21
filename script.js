@@ -47,6 +47,7 @@ function addRecipeToFavorites(recipeId) {
         alert('Przepis jest już w ulubionych!');
     }
 }
+
 function removeRecipeFromFavorites(recipeId) {
     let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
     favorites = favorites.filter(id => id !== recipeId);
@@ -65,6 +66,8 @@ function loadFavorites() {
             .then(response => response.json())
             .then(data => displayFavorites(data))
             .catch(error => console.error(error));
+    } else {
+        displayFavorites([]); // Call displayFavorites with an empty array if no favorites
     }
 }
 
@@ -82,10 +85,25 @@ function displayFavorites(favorites) {
             <p>Użyte składniki: ${recipe.usedIngredientsCount}</p>
             <p>Brakujące składniki: ${recipe.missedIngredientsCount}</p>
             <a href="https://spoonacular.com/recipes/${recipe.title.replace(/\s+/g, '-').toLowerCase()}-${recipe.id}" target="_blank">Zobacz przepis</a>
-            <button onclick="removeRecipeFromFavorites(${recipe.id})">Usuń z ulubionych</button>
-            `;
+            <button class="remove-btn" onclick="removeRecipeFromFavorites(${recipe.id})">Usuń z ulubionych</button>
+        `;
         container.appendChild(recipeCard);
     });
+
+    updateFavorites(); // Call updateFavorites after displaying favorites
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const favoritesContainer = document.getElementById('favorites-container');
+
+    function updateFavorites() {
+        if (favoritesContainer.children.length === 0) {
+            favoritesContainer.innerHTML = '<p>Brak ulubionych przepisów</p>';
+        }
+    }
+
+    // Initial check
+    updateFavorites();
+});
 
 window.onload = loadFavorites;
